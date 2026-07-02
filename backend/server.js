@@ -151,11 +151,7 @@ app.post('/api/submit', async (req, res) => {
 
     let calculatedScore = 0;
     let totalTimeTaken = 0;
-    const breakdown = {
-      http: 0,
-      node: 0,
-      express: 0
-    };
+    const breakdown = {};
 
     // Calculate score & breakdown based on full backend questions array
     for (const q of questions) {
@@ -177,9 +173,10 @@ app.post('/api/submit', async (req, res) => {
       if (isCorrect) {
         calculatedScore++;
         const topicKey = q.topic.toLowerCase().replace('.', ''); // Node.js -> node
-        if (topicKey in breakdown) {
-          breakdown[topicKey]++;
+        if (!breakdown[topicKey]) {
+          breakdown[topicKey] = 0;
         }
+        breakdown[topicKey]++;
       }
     }
 
