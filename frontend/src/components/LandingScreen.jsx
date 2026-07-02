@@ -18,14 +18,10 @@ export default function LandingScreen({ studentName, setStudentName, onStart, is
   };
 
   return (
-    <div className="min-height-[80vh] flex flex-col justify-center items-center px-4 py-12 animate-slide-up">
-      <div className="w-full max-w-lg glass-panel-glow rounded-3xl p-8 md:p-10 relative overflow-hidden">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center px-4 py-12 animate-slide-up relative z-10">
+      <div className="w-full max-w-lg flex flex-col items-center justify-center">
         
-        {/* Decorative corner glows */}
-        <div className="absolute -top-10 -right-10 w-24 h-24 bg-indigo-500/20 rounded-full blur-2xl"></div>
-        <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl"></div>
-
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 w-full">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold tracking-wider text-indigo-400 uppercase mb-4">
             🚀 Interactive Quiz Session
           </div>
@@ -38,26 +34,26 @@ export default function LandingScreen({ studentName, setStudentName, onStart, is
         </div>
 
         {/* Topics grid */}
-        <div className="grid grid-cols-3 gap-2.5 mb-8">
-          <div className="flex flex-col items-center p-3 rounded-xl bg-blue-500/5 border border-blue-500/10 text-center">
+        <div className="grid grid-cols-3 gap-2.5 mb-8 w-full">
+          <div className="flex flex-col items-center p-3 rounded-xl bg-blue-500/5 backdrop-blur-md border border-blue-500/10 text-center shadow-lg">
             <span className="text-lg mb-1">🌐</span>
             <span className="text-xs font-bold text-blue-300">Databases</span>
             <span className="text-[10px] text-gray-500">Core Concepts</span>
           </div>
-          <div className="flex flex-col items-center p-3 rounded-xl bg-indigo-500/5 border border-indigo-500/10 text-center">
+          <div className="flex flex-col items-center p-3 rounded-xl bg-indigo-500/5 backdrop-blur-md border border-indigo-500/10 text-center shadow-lg">
             <span className="text-lg mb-1">🗄️</span>
             <span className="text-xs font-bold text-indigo-300">SQL</span>
             <span className="text-[10px] text-gray-500">Relational</span>
           </div>
-          <div className="flex flex-col items-center p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/10 text-center">
+          <div className="flex flex-col items-center p-3 rounded-xl bg-emerald-500/5 backdrop-blur-md border border-emerald-500/10 text-center shadow-lg">
             <span className="text-lg mb-1">🍃</span>
             <span className="text-xs font-bold text-emerald-300">MongoDB</span>
             <span className="text-[10px] text-gray-500">NoSQL</span>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
+        <form onSubmit={handleSubmit} className="space-y-5 w-full">
+          <div className="w-full">
             <label htmlFor="student-name" className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 text-left">
               Student Name
             </label>
@@ -70,7 +66,7 @@ export default function LandingScreen({ studentName, setStudentName, onStart, is
                 if (e.target.value.trim()) setError('');
               }}
               placeholder="Enter your name to join..."
-              className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-white rounded-xl px-4 py-3.5 text-base outline-none transition-all duration-300"
+              className="w-full bg-slate-950/40 backdrop-blur-md border border-slate-800/80 hover:border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-white rounded-xl px-4 py-3.5 text-base outline-none transition-all duration-300 shadow-inner"
               disabled={isLoading}
               maxLength={25}
             />
