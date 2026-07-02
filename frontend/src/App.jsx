@@ -5,6 +5,7 @@ import QuizScreen from './components/QuizScreen';
 import FeedbackScreen from './components/FeedbackScreen';
 import ResultsScreen from './components/ResultsScreen';
 import LeaderboardScreen from './components/LeaderboardScreen';
+import Aurora from './components/Aurora';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 const API_BASE = `${BACKEND_URL}/api`;
@@ -165,8 +166,20 @@ function App() {
   // --- Render logic ---
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      {screen === 'landing' && (
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Background Aurora Effect */}
+      <div className="absolute inset-0 z-0">
+        <Aurora
+          colorStops={["#5227FF", "#FF94B4", "#7cff67"]}
+          blend={0.5}
+          amplitude={1.2}
+          speed={0.8}
+        />
+      </div>
+
+      {/* Main Content Layer */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-center">
+        {screen === 'landing' && (
         <LandingScreen
           studentName={studentName}
           setStudentName={setStudentName}
@@ -211,6 +224,7 @@ function App() {
           onRetry={resetApp}
         />
       )}
+      </div>
     </div>
   );
 }

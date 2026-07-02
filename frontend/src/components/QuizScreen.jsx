@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import MagicBento from './MagicBento';
 
 export default function QuizScreen({
   question,
@@ -51,6 +52,13 @@ export default function QuizScreen({
       onSubmitAnswer();
     }
   };
+
+  // Format options for MagicBento
+  const bentoItems = type === 'MCQ' ? options.map((opt, i) => ({
+    value: opt,
+    title: opt,
+    label: String.fromCharCode(65 + i)
+  })) : [];
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-8 animate-slide-up">
@@ -131,36 +139,23 @@ export default function QuizScreen({
 
         {/* Input Controls */}
         {type === 'MCQ' ? (
-          <div className="grid grid-cols-1 gap-3.5 mt-4">
-            {options.map((opt, i) => {
-              const isSelected = currentAnswer === opt;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setCurrentAnswer(opt)}
-                  className={`w-full text-left p-4 rounded-xl border text-sm md:text-base font-medium transition-all duration-200 flex items-center justify-between ${
-                    isSelected
-                      ? 'bg-indigo-500/10 border-indigo-500 text-indigo-300 shadow-md shadow-indigo-500/5'
-                      : 'bg-slate-950/40 border-slate-800 text-gray-300 hover:bg-slate-900/60 hover:border-slate-700 hover:text-white'
-                  }`}
-                >
-                  <span className="flex items-center gap-3">
-                    <span className={`w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold ${
-                      isSelected ? 'bg-indigo-500 text-white' : 'bg-slate-900 border border-slate-800 text-gray-400'
-                    }`}>
-                      {String.fromCharCode(65 + i)}
-                    </span>
-                    {opt}
-                  </span>
-                  {isSelected && (
-                    <span className="text-indigo-400 animate-scale-up">
-                      ✓
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+          <div className="mt-4">
+            <MagicBento 
+              items={bentoItems}
+              onItemClick={(val) => setCurrentAnswer(val)}
+              activeItem={currentAnswer}
+              textAutoHide={false}
+              enableStars={false}
+              enableSpotlight={true}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              glowColor="99, 102, 241"
+            />
           </div>
+
         ) : (
           <div className="mt-4 space-y-4">
             <input
