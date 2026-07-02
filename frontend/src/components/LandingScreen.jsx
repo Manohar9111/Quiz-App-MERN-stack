@@ -33,7 +33,7 @@ export default function LandingScreen({ studentName, setStudentName, onStart, is
             Full Stack <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Mastery</span>
           </h1>
           <p className="text-gray-400 text-sm md:text-base max-w-md mx-auto">
-            Test your knowledge on HTTP protocols, Node.js core systems, and Express middleware. Real-time updates as peers finish!
+            Test your knowledge on Databases, SQL, and MongoDB schemas. Real-time updates as peers finish!
           </p>
         </div>
 
@@ -41,18 +41,18 @@ export default function LandingScreen({ studentName, setStudentName, onStart, is
         <div className="grid grid-cols-3 gap-2.5 mb-8">
           <div className="flex flex-col items-center p-3 rounded-xl bg-blue-500/5 border border-blue-500/10 text-center">
             <span className="text-lg mb-1">🌐</span>
-            <span className="text-xs font-bold text-blue-300">HTTP</span>
-            <span className="text-[10px] text-gray-500">5 Questions</span>
+            <span className="text-xs font-bold text-blue-300">Databases</span>
+            <span className="text-[10px] text-gray-500">Core Concepts</span>
+          </div>
+          <div className="flex flex-col items-center p-3 rounded-xl bg-indigo-500/5 border border-indigo-500/10 text-center">
+            <span className="text-lg mb-1">🗄️</span>
+            <span className="text-xs font-bold text-indigo-300">SQL</span>
+            <span className="text-[10px] text-gray-500">Relational</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/10 text-center">
-            <span className="text-lg mb-1">📦</span>
-            <span className="text-xs font-bold text-emerald-300">Node.js</span>
-            <span className="text-[10px] text-gray-500">5 Questions</span>
-          </div>
-          <div className="flex flex-col items-center p-3 rounded-xl bg-purple-500/5 border border-purple-500/10 text-center">
-            <span className="text-lg mb-1">⚡</span>
-            <span className="text-xs font-bold text-purple-300">Express</span>
-            <span className="text-[10px] text-gray-500">5 Questions</span>
+            <span className="text-lg mb-1">🍃</span>
+            <span className="text-xs font-bold text-emerald-300">MongoDB</span>
+            <span className="text-[10px] text-gray-500">NoSQL</span>
           </div>
         </div>
 
