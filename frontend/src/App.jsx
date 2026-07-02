@@ -64,7 +64,8 @@ function App() {
 
   const startQuiz = async () => {
     try {
-      const res = await fetch(`${API_BASE}/questions`);
+      // Added cache: 'no-store' to prevent browsers from caching old questions!
+      const res = await fetch(`${API_BASE}/questions`, { cache: 'no-store' });
       const data = await res.json();
       if (data && data.length > 0) {
         setQuestions(data);
